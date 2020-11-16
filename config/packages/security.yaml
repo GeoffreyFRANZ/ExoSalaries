@@ -23,6 +23,4 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 # config/packages/security.yaml
-security:
-    enable_authenticator_manager: true
-    # ...
+
