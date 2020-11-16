@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SalarieController!
+{% endblock %}
+
+{% block body %}
+
+	<p>
+		collégue de  :
+		{{salarie.nom}}
+	</p>
+
+		{% for collegue in collegues %}
+
+				{% if salarie.nom == collegue.nom %}
+
+					{% else %}
+			<li>
+						{{collegue.nom ~ ' ' ~ collegue.prenom }}
+			</li>
+				{% endif %}
+	
+	{% endfor %}
+{% endblock %}

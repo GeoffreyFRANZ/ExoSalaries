@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	editMode!
+{% endblock %}
+
+{% block body %}
+
+	{% if editMode %}
+
+		<h1>modification</h1>
+
+	{% else %}
+
+		<h1>Ajout</h1>
+	{% endif %}
+
+	{{ form(form)}}  {% endblock %}

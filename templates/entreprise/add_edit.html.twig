@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% set txt = (editMode) ? 'Modifier' : 'Ajouter'  %}
+
+{% block title %}
+	{{ txt }}
+	Une entreprise
+{% endblock %}
+
+
+{% block body %}
+
+	<h1> {{ txt }} Une entreprise <span class="black"> {{ entreprise }} </span></h1>
+
+{{ form(formEntreprise) }}
+{% endblock %}

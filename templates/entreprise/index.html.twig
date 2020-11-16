@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EntrepriseController!
+{% endblock %}
+
+{% block body %}
+
+	<a href=" {{path('salarie')}} ">Salariés</a>
+	<a href=" {{path('entreprise')}} ">Entreprises</a>
+
+<div class="table-responsive">
+	<table class="table" >
+
+		<thead>
+
+			<th scope="col" >raisonSocial</th>
+			<th scope="col" >siret</th>
+			<th scope="col" >adresse</th>
+			<th scope="col" >cp</th>
+			<th scope="col" >villes</th>
+
+
+		</thead>
+
+		{% for entreprise in entreprises %}
+
+			<tr scope="col">
+				<td>
+					<a href=" {{ path('entreprise_show', {'id' :entreprise.id}) }}  ">
+						{{ entreprise.raisonSocial }}
+					</a>
+				</td>
+				<td>
+					{{ entreprise.siret }}
+				</td>
+				<td>
+					{{ entreprise.adresse }}
+				</td>
+				<td>
+					{{ entreprise.cp }}
+				</td>
+				<td>
+					{{ entreprise.ville }}
+				</td>
+				<td class="bg-warning rounded-pill ">
+					<a class="text-white" href="{{ path('entreprise_edit', {'id':entreprise.id})}}">Modifier</a>
+				</td>
+				<td class="bg-danger rounded-pill  ">
+					<a class="text-white" href=" {{path('entreprise_delete' , {'id':entreprise.id})}} ">supprimé</a>
+				</td>
+
+
+			</tr>
+		{% endfor %}
+
+	</table>
+
+</div>
+
+	<a href=" {{ path("entreprises_add") }} ">Ajouter</a>
+
+{% endblock %}

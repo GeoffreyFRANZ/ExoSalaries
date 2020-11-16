@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SalarieController!
+{% endblock %}
+
+{% block body %}
+
+<a href=" {{path('salarie')}} ">Salariés</a>
+<a href=" {{path('entreprise')}} ">Entreprises</a>
+	<div class="table-responsive">
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">SALARIE</th>
+					<th scope="col">ADRESSE</th>
+					<th scope="col">CP</th>
+					<th scope="col">VILLE</th>
+					<th scope="col">DATE EMBAUCHE</th>
+					<th scope="col">ENTREPRISE</th>
+					<th scope="col">modifer</th>
+					<th scope="col">supprimer</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for salarie in salaries %}
+
+					<tr scope="col">
+						<td>
+							<a href=" {{path('salarie_show',{'id':salarie.id})}} ">{{ salarie.nom ~ ' ' ~ salarie.prenom }}</a>
+						</td>
+
+						<td>
+							{{ salarie.adresse }}
+						</td>
+						<td>
+							{{ salarie.cp }}
+						</td>
+						<td>
+							{{ salarie.ville }}
+						</td>
+						<td>
+							{{ salarie.dateEmbauche | date('d/m/Y') }}
+						</td>
+						<td>
+							{{ salarie.entreprise.raisonSocial }}
+						</td>
+						<td class="bg-warning rounded-pill ">
+							<a class="text-white" href="{{ path('salarie_edit', {'id':salarie.id})}}">Modifier</a>
+						</td>
+						<td class="bg-danger rounded-pill  ">
+							<a class="text-white" href=" {{path('salarie_delete' , {'id':salarie.id})}} ">supprimé</a>
+						</td>
+					</tr>
+
+
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<a href=" {{path('salarie_add')}} ">ajouté</a>
+{% endblock %}
